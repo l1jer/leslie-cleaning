@@ -2,13 +2,26 @@ import type { GatsbyConfig } from "gatsby"
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `Leslie Cleaning Services`,
+    description: `Professional cleaning services in Australia. We provide house, apartment, townhouse, kitchen, windows, office, and end-of-lease cleaning services.`,
+    siteUrl: `https://lesliecleaning.com.au`,
+    author: `Leslie Cleaning`,
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
-  plugins: [],
+  plugins: [
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images`,
+      },
+    },
+    'gatsby-plugin-postcss',
+  ],
 }
 
 export default config
